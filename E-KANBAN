@@ -1,0 +1,28 @@
+Private Sub btnOluştur_Click()
+If txtBkod.Text = "" Then
+MsgBox "Lutfen kod giriniz."
+txtBkod.SetFocus
+Exit Sub
+End If
+If Len(txtBkod.Text) < 12 Then
+MsgBox "Lutfen 12 haneli kod giriniz."
+txtBkod.SetFocus
+End If
+txtBarkod.Text = txtBkod.Text
+txtBk.Text = txtBkod.Text
+End Sub
+
+Private Sub btnYazdir_Click()
+Dim sor As Integer
+sor = MsgBox("Barkod yazdirilsin mi?", vbYesNo + vbDefaultButton1 + vbQuestion, "YAZDIR")
+If sor = 7 Then
+Exit Sub
+frmYazdir.txtBarkod.Text = txtBkod.Text
+frmYazdir.txtBk.Text = txtBkod.Text
+frmYazdir.PrintForm
+MsgBox "Barkod Yazdırıldı"
+txtBkod.Text = ""
+txtBkod.SetFocus
+End If
+
+End Sub
